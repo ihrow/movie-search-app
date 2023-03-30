@@ -22,7 +22,6 @@ export const fetchFilmPlot = (id) => async (dispatch) => {
     const response = await axios.get(`https://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_KEY}`, {
         params: { i: id }
     })
-    console.log(response.data)
     if (response.data.Error) {
         dispatch(filmsSlice.actions.filmsFetchFailure(response.data.Error))
         return

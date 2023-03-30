@@ -8,7 +8,7 @@ const App = () => {
     /**
      * API is not so good to be honest. 
      */
-    <div className="background-gradient min-h-[100vh] px-4 md:px-10 py-24">
+    <div className="bg-gray-100 min-h-[100vh] px-4 md:px-10 py-24">
       <Routes>
         <Route path="/*" element={<MainPage />} />
         <Route path="/:id" element={<Film />} />

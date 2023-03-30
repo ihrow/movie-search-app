@@ -28,7 +28,6 @@ export const filmsSlice = createSlice({
             state.error = null
         },
         filmsTotalResults: (state, action) => {
-            console.log(action.payload)
             state.totalResults = action.payload
         },
         filmsAddPlot: (state, action) => {
