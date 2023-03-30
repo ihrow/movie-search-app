@@ -1,0 +1,41 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+    films: [],
+    loading: false,
+    error: null,
+}
+
+export const filmsSlice = createSlice({
+    name: 'films',
+    initialState,
+    reducers: {
+        filmsFetch: (state) => {
+            state.loading = true
+        },
+        filmsFetchSuccess: (state, action) => {
+            state.films = state.films.concat(action.payload)
+            state.loading = false
+        },
+        filmsFetchFailure: (state, action) => {
+            state.error = action.payload
+            state.loading = false
+        },
+        filmsDataReset: (state) => {
+            state.films = []
+            state.loading = false
+            state.error = null
+        },
+        filmsAddPlot: (state, action) => {
+            state.films = state.films.map(film => {
+                if (film.imdbID === action.payload.imdbID) {
+                    return {...film, Plot: action.payload.Plot}
+                }
+                return film
+            })
+        }
+    }
+})
+
+export default filmsSlice.reducer
+
