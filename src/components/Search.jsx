@@ -8,7 +8,7 @@ const Search = ({ setSearchQuery }) => {
   const debouncedSearch = useDebounce(setSearchQuery, 1000)
 
   return (
-    <div className="w-full flex justify-center items-center text-center mt-10">
+    <div className="w-full flex justify-center items-center text-center my-16 ">
       <motion.div
         variants={fadeIn('up', 'tween', 0.2, 0.3)}
         initial="hidden"

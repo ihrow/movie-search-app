@@ -30,7 +30,7 @@ const Main = () => {
   }, [searchQuery])
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center text-center">
+    <div className="w-full h-full flex flex-col justify-center items-center text-center my-10">
       <motion.h1
         className="text-black text-7xl font-bold"
         variants={textVariant(0.5)}

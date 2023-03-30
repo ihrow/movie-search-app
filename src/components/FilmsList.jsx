@@ -4,7 +4,7 @@ import MasonryLayout from './MasonryLayout'
 
 const FilmsList = ({ setPage }) => {
   const intersectionRef = useRef()
-  const {films, loading, error} = useSelector(state => state.films)
+  const {films, loading, error,} = useSelector(state => state.films)
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {

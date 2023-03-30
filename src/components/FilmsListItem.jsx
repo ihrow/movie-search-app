@@ -4,7 +4,6 @@ import { useActions } from '../hooks/useActions'
 import { fadeIn } from '../utils/motion'
 import { useNavigate } from 'react-router-dom'
 
-
 const FilmsListItem = ({ idx, film }) => {
   const navigate = useNavigate()
   const { fetchFilmPlot } = useActions()

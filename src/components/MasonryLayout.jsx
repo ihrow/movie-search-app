@@ -19,9 +19,9 @@ const MasonryLayout = ({ films }) => {
         columnClassName='mx-3' 
         breakpointCols={breakpointObj}
     >
-      {films.map((film, idx) => (
-        <FilmsListItem idx={idx} key={film.imdbID} film={film} />
-      ))}
+      {films.map((film, idx) => 
+        film.Poster === 'N/A' ? null : <FilmsListItem key={film.imdbID} idx={idx} film={film} />
+      )}
     </Masonry>
   )
 }
