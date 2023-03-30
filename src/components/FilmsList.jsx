@@ -29,7 +29,7 @@ const FilmsList = ({ setPage }) => {
   return (
     <div className='flex flex-row justify-center items-center flex-wrap'>
       {!error && <MasonryLayout films={films} />}
-      {loading && <div className="w-full h-[100px] text-center text-black font-bold text-xl">Loading...</div>}
+      {loading && <div className="w-full h-[50px] text-center text-black font-bold text-xl">Loading...</div>}
       <div className='w-full' ref={intersectionRef} />
     </div>
   )

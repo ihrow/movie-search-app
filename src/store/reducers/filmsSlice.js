@@ -4,6 +4,7 @@ const initialState = {
     films: [],
     loading: false,
     error: null,
+    totalResults: 20
 }
 
 export const filmsSlice = createSlice({
@@ -25,6 +26,10 @@ export const filmsSlice = createSlice({
             state.films = []
             state.loading = false
             state.error = null
+        },
+        filmsTotalResults: (state, action) => {
+            console.log(action.payload)
+            state.totalResults = action.payload
         },
         filmsAddPlot: (state, action) => {
             state.films = state.films.map(film => {

@@ -11,6 +11,7 @@ export const fetchFilms = (page, searchQuery) => async (dispatch) => {
         return
     }
     dispatch(filmsSlice.actions.filmsFetchSuccess(response.data.Search))
+    dispatch(filmsSlice.actions.filmsTotalResults(response.data.totalResults))
 }
 
 export const resetFilms = () => (dispatch) => {

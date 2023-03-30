@@ -4,6 +4,7 @@ import FilmsList from '../components/FilmsList'
 import Search from '../components/Search'
 import { useActions } from '../hooks/useActions'
 import { textVariant } from '../utils/motion'
+import { useSelector } from 'react-redux'
 
 const Main = () => {
   const [searchQuery, setSearchQuery] = useState(
@@ -13,8 +14,12 @@ const Main = () => {
   )
   const [page, setPage] = useState(1)
   const { fetchFilms, resetFilms } = useActions()
+  const { totalResults } = useSelector(state => state.films)
 
   useEffect(() => {
+    if (page > Math.ceil(totalResults / 10)) {
+      return
+    }
     fetchFilms(page, searchQuery)
   }, [page])
 
