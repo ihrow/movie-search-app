@@ -36,7 +36,7 @@ const FilmsListItem = ({ idx, film }) => {
         <p className="mb-3 text-sm font-semibold text-gray-200">
           Released: {film.Year}
         </p>
-        <p className="mb-3 font-normal text-white">{film?.Plot}</p>
+        <p className="mb-3 font-normal text-white">{film.Plot === 'N/A' ? 'No plot provided' : film.Plot}</p>
       </div>
     </motion.div>
   )

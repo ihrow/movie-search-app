@@ -27,7 +27,7 @@ const Film = () => {
 
   return (
     <div className='flex items-center justify-center flex-col'>
-      <div className="flex flex-col items-center lg:flex-row justify-start lg:items-start w-full px-8 lg:px-48">
+      <div className="flex flex-col items-center lg:flex-row justify-start lg:items-start w-full px-2 lg:px-48">
         <div className="flex flex-col justify-center items-center max-w-[500px] h-full">
           <img src={film.Poster} className='min-h-[500px] min-w-[281px]' alt="Film Poster" />
           {film.Metascore !== 'N/A' && <div className="mt-3 bg-orange-500 rounded-lg px-5 py-3 text-white font-bold">
@@ -38,7 +38,7 @@ const Film = () => {
           <h1 className="text-3xl text-black font-bold">
             {film.Title} ({film.Year})
           </h1>
-          <p className="mt-3 text-lg font-medium">{film.Plot}</p>
+          <p className="mt-3 text-lg font-medium">{film.Plot === 'N/A' ? 'No plot provided' : film.Plot}</p>
           <h3 className="text-xl text-black font-bold my-3">About the film:</h3>
           <div className="grid grid-cols-3 gap-1">
             <div className="col-span-1 text-gray-light">Released</div>
