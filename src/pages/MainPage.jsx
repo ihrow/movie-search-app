@@ -30,9 +30,9 @@ const Main = () => {
   }, [searchQuery])
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center text-center my-10">
+    <div className="w-full h-full flex flex-col justify-center items-center text-center my-3 md:my-10">
       <motion.h1
-        className="text-black text-7xl font-bold"
+        className="text-black text-5xl md:text-7xl font-bold"
         variants={textVariant(0.5)}
         initial="hidden"
         whileInView="show"

@@ -29,7 +29,7 @@ const Film = () => {
     <div className='flex items-center justify-center flex-col'>
       <div className="flex flex-col items-center lg:flex-row justify-start lg:items-start w-full px-2 lg:px-48">
         <div className="flex flex-col justify-center items-center max-w-[500px] h-full">
-          <img src={film.Poster} className='min-h-[500px] min-w-[281px]' alt="Film Poster" />
+          <img src={film.Poster} className='min-h-[300px] md:min-h-[500px] min-w-[168px] md:min-w-[281px]' alt="Film Poster" />
           {film.Metascore !== 'N/A' && <div className="mt-3 bg-orange-500 rounded-lg px-5 py-3 text-white font-bold">
             <span>Metascore: {film.Metascore}/100</span>
           </div>}
