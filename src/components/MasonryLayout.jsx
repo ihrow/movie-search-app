@@ -4,6 +4,7 @@ import FilmsListItem from './FilmsListItem'
 
 const breakpointObj = {
   default: 4,
+  4000: 8,
   3000: 6,
   2000: 5,
   1200: 3,
