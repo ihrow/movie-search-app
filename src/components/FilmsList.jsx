@@ -20,10 +20,12 @@ const FilmsList = ({ setPage }) => {
     }
   }, [])
 
-  if (error === 'Incorrect IMDb ID.') {
-    return <h3 className='font-bold mt-5 text-lg text-black'>Enter movie name.</h3>
-  } else if (error) {
-    return <h3 className='font-bold mt-5 text-lg text-black'>{error}</h3>
+  if (error) {
+    return (
+      <h3 className='font-bold mt-5 text-lg text-black'>
+        {error === 'Incorrect IMDb ID.' ? 'Enter movie name.' : error}
+      </h3>
+    );
   }
 
   return (

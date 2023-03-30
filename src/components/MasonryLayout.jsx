@@ -13,7 +13,9 @@ const breakpointObj = {
 }
 
 const MasonryLayout = ({ films }) => {
-
+  /**
+   * Since every poster has different size, we will use Masonry to render the list
+   */
   return (
     <Masonry 
         className="flex mb-5 overflow-x-hidden" 

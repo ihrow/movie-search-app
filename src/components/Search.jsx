@@ -14,7 +14,7 @@ const Search = ({ setSearchQuery }) => {
         initial="hidden"
         whileInView="show"
         whileHover={{ scale: 1.05 }}
-        className="relative flex justify-start items-center w-full md:w-1/2 h-20 "
+        className="relative flex justify-start items-center w-full md:w-1/2 h-20"
       >
         <AiOutlineSearch className="absolute text-black ml-2" fontSize={32} />
         <motion.input
