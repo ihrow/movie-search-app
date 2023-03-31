@@ -9,7 +9,7 @@ const FilmsListItem = ({ idx, film }) => {
   const { fetchFilmPlot } = useActions()
 
   /**
-   * As basic search request doesn't return plot, 
+   * As basic search request doesn't return plot,
    * we need to fetch it separately for each film.
    */
   useEffect(() => {
@@ -17,9 +17,9 @@ const FilmsListItem = ({ idx, film }) => {
   }, [])
 
   return (
-    <motion.div 
-      className="w-full rounded-lg shadow-lg bg-gray-800 border-gray-700 my-5 md:my-8 cursor-pointer"
-      variants={fadeIn(idx % 2 === 0 ? "right" : "left", "spring", 0.2, 0.5)}
+    <motion.div
+      className="my-5 w-full cursor-pointer rounded-lg border-gray-700 bg-gray-800 shadow-lg md:my-8"
+      variants={fadeIn(idx % 2 === 0 ? 'right' : 'left', 'spring', 0.2, 0.5)}
       initial="hidden"
       whileInView="show"
       whileHover={{ scale: 1.05 }}
@@ -35,7 +35,9 @@ const FilmsListItem = ({ idx, film }) => {
         <p className="mb-3 text-sm font-semibold text-gray-200">
           Released: {film.Year}
         </p>
-        <p className="mb-3 font-normal text-white">{film.Plot === 'N/A' ? 'No plot provided' : film.Plot}</p>
+        <p className="mb-3 font-normal text-white">
+          {film.Plot === 'N/A' ? 'No plot provided' : film.Plot}
+        </p>
       </div>
     </motion.div>
   )

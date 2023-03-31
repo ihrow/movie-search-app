@@ -15,8 +15,8 @@ const Film = () => {
 
   if (loading) {
     return (
-      <div className='flex items-center justify-center flex-col'>
-        <h1 className='text-3xl text-black font-bold'>Loading...</h1>
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="text-3xl font-bold text-black">Loading...</h1>
       </div>
     )
   }
@@ -26,38 +26,46 @@ const Film = () => {
   }
 
   return (
-    <div className='flex items-center justify-center flex-col'>
-      <div className="flex flex-col items-center lg:flex-row justify-start lg:items-start w-full px-2 lg:px-48">
-        <div className="flex flex-col justify-center items-center max-w-[500px] h-full">
-          <img src={film.Poster} className='min-h-[300px] md:min-h-[500px] min-w-[168px] md:min-w-[281px]' alt="Film Poster" />
-          {film.Metascore !== 'N/A' && <div className="mt-3 bg-orange-500 rounded-lg px-5 py-3 text-white font-bold">
-            <span>Metascore: {film.Metascore}/100</span>
-          </div>}
+    <div className="flex flex-col items-center justify-center">
+      <div className="flex w-full flex-col items-center justify-start px-2 lg:flex-row lg:items-start lg:px-48">
+        <div className="flex h-full max-w-[500px] flex-col items-center justify-center">
+          <img
+            src={film.Poster}
+            className="min-h-[300px] min-w-[168px] md:min-h-[500px] md:min-w-[281px]"
+            alt="Film Poster"
+          />
+          {film.Metascore !== 'N/A' && (
+            <div className="mt-3 rounded-lg bg-orange-500 px-5 py-3 font-bold text-white">
+              <span>Metascore: {film.Metascore}/100</span>
+            </div>
+          )}
         </div>
-        <div className="flex flex-col justify-start items-start ml-5 mt-3 lg:mt-0">
-          <h1 className="text-3xl text-black font-bold">
+        <div className="ml-5 mt-3 flex flex-col items-start justify-start lg:mt-0">
+          <h1 className="text-3xl font-bold text-black">
             {film.Title} ({film.Year})
           </h1>
-          <p className="mt-3 text-lg font-medium">{film.Plot === 'N/A' ? 'No plot provided' : film.Plot}</p>
-          <h3 className="text-xl text-black font-bold my-3">About the film:</h3>
+          <p className="mt-3 text-lg font-medium">
+            {film.Plot === 'N/A' ? 'No plot provided' : film.Plot}
+          </p>
+          <h3 className="my-3 text-xl font-bold text-black">About the film:</h3>
           <div className="grid grid-cols-3 gap-1">
-            <div className="col-span-1 text-gray-light">Released</div>
+            <div className="text-gray-light col-span-1">Released</div>
             <div className="col-span-2 px-4">{film.Released}</div>
-            <div className="col-span-1 text-gray-light">Director</div>
+            <div className="text-gray-light col-span-1">Director</div>
             <div className="col-span-2 px-4">{film.Director}</div>
-            <div className="col-span-1 text-gray-light">Actors</div>
+            <div className="text-gray-light col-span-1">Actors</div>
             <div className="col-span-2 px-4">{film.Actors}</div>
-            <div className="col-span-1 text-gray-light">Genres</div>
+            <div className="text-gray-light col-span-1">Genres</div>
             <div className="col-span-2 px-4">{film.Genre}</div>
-            <div className="col-span-1 text-gray-light">Runtime</div>
+            <div className="text-gray-light col-span-1">Runtime</div>
             <div className="col-span-2 px-4">{film.Runtime}</div>
-            <div className="col-span-1 text-gray-light">Country</div>
+            <div className="text-gray-light col-span-1">Country</div>
             <div className="col-span-2 px-4">{film.Country}</div>
           </div>
         </div>
       </div>
       <button
-        className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full mt-5"
+        className="mt-5 rounded-full bg-orange-500 px-4 py-2 font-bold text-white hover:bg-orange-700"
         onClick={() => navigate(-1)}
       >
         Back

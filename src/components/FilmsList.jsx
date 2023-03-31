@@ -4,16 +4,16 @@ import MasonryLayout from './MasonryLayout'
 
 const FilmsList = ({ setPage }) => {
   const intersectionRef = useRef()
-  const {films, loading, error,} = useSelector(state => state.films)
+  const { films, loading, error } = useSelector((state) => state.films)
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        setPage(prevPage => prevPage + 1)
+        setPage((prevPage) => prevPage + 1)
       }
     })
     setTimeout(() => {
-        observer.observe(intersectionRef.current)
+      observer.observe(intersectionRef.current)
     }, 1000)
     return () => {
       observer.disconnect()
@@ -22,17 +22,21 @@ const FilmsList = ({ setPage }) => {
 
   if (error) {
     return (
-      <h3 className='font-bold mt-5 text-lg text-black'>
+      <h3 className="mt-5 text-lg font-bold text-black">
         {error === 'Incorrect IMDb ID.' ? 'Enter movie name.' : error}
       </h3>
-    );
+    )
   }
 
   return (
-    <div className='flex flex-row justify-center items-center flex-wrap'>
+    <div className="flex flex-row flex-wrap items-center justify-center">
       {!error && <MasonryLayout films={films} />}
-      {loading && <div className="w-full h-[50px] text-center text-black font-bold text-xl">Loading...</div>}
-      <div className='w-full' ref={intersectionRef} />
+      {loading && (
+        <div className="h-[50px] w-full text-center text-xl font-bold text-black">
+          Loading...
+        </div>
+      )}
+      <div className="w-full" ref={intersectionRef} />
     </div>
   )
 }

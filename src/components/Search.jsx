@@ -8,17 +8,17 @@ const Search = ({ setSearchQuery }) => {
   const debouncedSearch = useDebounce(setSearchQuery, 1000)
 
   return (
-    <div className="w-full flex justify-center items-center text-center my-6 md:my-16 ">
+    <div className="my-6 flex w-full items-center justify-center text-center md:my-16 ">
       <motion.div
         variants={fadeIn('up', 'tween', 0.2, 0.3)}
         initial="hidden"
         whileInView="show"
         whileHover={{ scale: 1.05 }}
-        className="relative flex justify-start items-center w-full md:w-1/2 h-20"
+        className="relative flex h-20 w-full items-center justify-start md:w-1/2"
       >
-        <AiOutlineSearch className="absolute text-black ml-2" fontSize={32} />
+        <AiOutlineSearch className="absolute ml-2 text-black" fontSize={32} />
         <motion.input
-          className="w-full h-16 bg-white text-lg font-bold placeholder:font-medium text-black placeholder:text-black rounded-lg border placeholder:italic border-black focus:outline-none px-12"
+          className="h-16 w-full rounded-lg border border-black bg-white px-12 text-lg font-bold text-black placeholder:font-medium placeholder:italic placeholder:text-black focus:outline-none"
           type="text"
           placeholder="Star Wars..."
           onChange={(e) => debouncedSearch(e.target.value)}

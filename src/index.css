@@ -4,12 +4,22 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-.text-bg-gradient{
-  background: -webkit-linear-gradient(90deg, rgb(244, 67, 54) 21.49%, rgb(223, 52, 206) 40.51%, rgb(103, 37, 242) 59.53%);
-  background: linear-gradient(90deg, rgb(244, 67, 54) 21.49%, rgb(223, 52, 206) 40.51%, rgb(103, 37, 242) 59.53%);
+.text-bg-gradient {
+  background: -webkit-linear-gradient(
+    90deg,
+    rgb(244, 67, 54) 21.49%,
+    rgb(223, 52, 206) 40.51%,
+    rgb(103, 37, 242) 59.53%
+  );
+  background: linear-gradient(
+    90deg,
+    rgb(244, 67, 54) 21.49%,
+    rgb(223, 52, 206) 40.51%,
+    rgb(103, 37, 242) 59.53%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -22,5 +32,5 @@
 } */
 
 .background-gradient {
-  background: white
+  background: white;
 }

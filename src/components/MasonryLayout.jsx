@@ -1,5 +1,5 @@
 import React from 'react'
-import Masonry from "react-masonry-css";
+import Masonry from 'react-masonry-css'
 import FilmsListItem from './FilmsListItem'
 
 const breakpointObj = {
@@ -17,13 +17,15 @@ const MasonryLayout = ({ films }) => {
    * Since every poster has different size, we will use Masonry to render the list
    */
   return (
-    <Masonry 
-        className="flex mb-5 overflow-x-hidden" 
-        columnClassName='mx-3' 
-        breakpointCols={breakpointObj}
+    <Masonry
+      className="mb-5 flex overflow-x-hidden"
+      columnClassName="mx-3"
+      breakpointCols={breakpointObj}
     >
-      {films.map((film, idx) => 
-        film.Poster === 'N/A' ? null : <FilmsListItem key={film.imdbID} idx={idx} film={film} />
+      {films.map((film, idx) =>
+        film.Poster === 'N/A' ? null : (
+          <FilmsListItem key={film.imdbID} idx={idx} film={film} />
+        )
       )}
     </Masonry>
   )

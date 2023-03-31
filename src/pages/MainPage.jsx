@@ -14,7 +14,7 @@ const Main = () => {
   )
   const [page, setPage] = useState(1)
   const { fetchFilms, resetFilms } = useActions()
-  const { totalResults } = useSelector(state => state.films)
+  const { totalResults } = useSelector((state) => state.films)
 
   useEffect(() => {
     if (page > Math.ceil(totalResults / 10)) {
@@ -30,9 +30,9 @@ const Main = () => {
   }, [searchQuery])
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center text-center my-3 md:my-10">
+    <div className="my-3 flex h-full w-full flex-col items-center justify-center text-center md:my-10">
       <motion.h1
-        className="text-black text-5xl md:text-7xl font-bold"
+        className="text-5xl font-bold text-black md:text-7xl"
         variants={textVariant(0.5)}
         initial="hidden"
         whileInView="show"
@@ -40,7 +40,7 @@ const Main = () => {
         Find your{' '}
         <motion.span className="text-bg-gradient">favourite</motion.span> movie.
       </motion.h1>
-      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}  />
+      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <FilmsList setPage={setPage} />
     </div>
   )
