@@ -7,15 +7,15 @@ const FilmsList = ({ setPage }) => {
   const { films, loading, error } = useSelector((state) => state.films)
 
   useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setPage((prevPage) => prevPage + 1)
+      }
+    })
+    setTimeout(() => {
+      observer.observe(intersectionRef.current)
+    }, 1000)
     document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-          setPage((prevPage) => prevPage + 1)
-        }
-      })
-      setTimeout(() => {
-        observer.observe(intersectionRef.current)
-      }, 1000)
       return () => {
         observer.disconnect()
       }
