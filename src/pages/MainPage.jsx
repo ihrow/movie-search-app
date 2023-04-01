@@ -42,6 +42,12 @@ const Main = () => {
       </motion.h1>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <FilmsList setPage={setPage} />
+      {page > Math.ceil(totalResults / 10) && (
+        <div className="h-[50px] w-full text-center text-xl mt-3 font-bold text-black">
+          {' '}
+          No more films{' '}
+        </div>
+      )}
     </div>
   )
 }
