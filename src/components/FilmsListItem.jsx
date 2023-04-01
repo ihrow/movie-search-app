@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useActions } from '../hooks/useActions'
 import { fadeIn } from '../utils/motion'
 import { useNavigate } from 'react-router-dom'
+import noPoster from '../assets/no-poster.jpg'
 
 const FilmsListItem = ({ idx, film }) => {
   const navigate = useNavigate()
@@ -27,7 +28,11 @@ const FilmsListItem = ({ idx, film }) => {
         navigate(`/${film.imdbID}`)
       }}
     >
-      <img className="w-full rounded-t-lg" src={film.Poster} alt="" />
+      <img
+        className="w-full rounded-t-lg"
+        src={film.Poster === 'N/A' ? noPoster : film.Poster}
+        alt=""
+      />
       <div className="p-5">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
           {film.Title}

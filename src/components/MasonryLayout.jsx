@@ -21,11 +21,10 @@ const MasonryLayout = ({ films }) => {
       className="mb-5 flex overflow-x-hidden"
       columnClassName="mx-3"
       breakpointCols={breakpointObj}
+
     >
       {films.map((film, idx) =>
-        film.Poster === 'N/A' ? null : (
-          <FilmsListItem key={film.imdbID} idx={idx} film={film} />
-        )
+        <FilmsListItem key={film.imdbID} idx={idx} film={film} />
       )}
     </Masonry>
   )

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useActions } from '../hooks/useActions'
+import noPoster from '../assets/no-poster.jpg'
 
 const Film = () => {
   const { id } = useParams()
@@ -30,7 +31,7 @@ const Film = () => {
       <div className="flex w-full flex-col items-center justify-start px-2 lg:flex-row lg:items-start lg:px-48">
         <div className="flex h-full max-w-[500px] flex-col items-center justify-center">
           <img
-            src={film.Poster}
+            src={film.Poster === 'N/A' ? noPoster : film.Poster}
             className="min-h-[300px] min-w-[168px] md:min-h-[500px] md:min-w-[281px]"
             alt="Film Poster"
           />
