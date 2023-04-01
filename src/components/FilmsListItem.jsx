@@ -19,7 +19,7 @@ const FilmsListItem = ({ idx, film }) => {
 
   return (
     <motion.div
-      className="my-5 w-full cursor-pointer rounded-lg border-gray-700 bg-gray-800 shadow-lg md:my-8"
+      className="my-6 w-full cursor-pointer rounded-lg border-gray-700 bg-gray-800 shadow-lg md:my-8"
       variants={fadeIn(idx % 2 === 0 ? 'right' : 'left', 'spring', 0.2, 0.5)}
       initial="hidden"
       whileInView="show"

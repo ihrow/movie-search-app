@@ -20,7 +20,7 @@ const Main = () => {
     if (page > Math.ceil(totalResults / 10)) {
       return
     }
-    fetchFilms(page, searchQuery)
+    fetchFilms(page, searchQuery.trim())
   }, [page, searchQuery])
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Main = () => {
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <FilmsList setPage={setPage} />
       {page > Math.ceil(totalResults / 10) && (
-        <div className="h-[50px] w-full text-center text-xl mt-3 font-bold text-black">
+        <div className="mt-3 h-[50px] w-full text-center text-xl font-bold text-black">
           {' '}
           No more films{' '}
         </div>
