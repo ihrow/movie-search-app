@@ -7,6 +7,21 @@
   font-family: 'Poppins', sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 0.5rem;
+  background: rgb(103, 37, 242);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgb(244, 67, 54) 25.49%,
+    rgb(223, 52, 206) 75.51%,
+    rgb(103, 37, 242) 93.53%
+  );
+  border-radius: 10px;
+}
+
 .text-bg-gradient {
   background: -webkit-linear-gradient(
     90deg,
