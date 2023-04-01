@@ -21,7 +21,7 @@ const Main = () => {
       return
     }
     fetchFilms(page, searchQuery)
-  }, [page])
+  }, [page, searchQuery])
 
   useEffect(() => {
     resetFilms()
