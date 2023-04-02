@@ -6,9 +6,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { filmsReducer } from "./reducers/filmsSlice.js";
 import { singleFilmReducer } from "./reducers/singleFilmSlice.js";
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   films: filmsReducer,
   singleFilm: singleFilmReducer,
 });
-
-export default rootReducer;

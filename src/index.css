@@ -42,12 +42,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* .background-gradient {
-  background: #b993d6;
-  background: -webkit-linear-gradient(to left, #b993d6, #8ca6db);
-  background: linear-gradient(to left, #b993d6, #8ca6db);
-} */
-
 .background-gradient {
   background: white;
 }

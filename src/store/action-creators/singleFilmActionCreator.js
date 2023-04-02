@@ -1,8 +1,8 @@
 import axios from "axios";
-import { singleFilmSlice } from "../reducers/singleFilmSlice";
+import { singleFilmActions } from "../reducers/singleFilmSlice.js";
 
 export const fetchFilm = (id) => async (dispatch) => {
-  dispatch(singleFilmSlice.actions.fetchFilm());
+  dispatch(singleFilmActions.fetchFilm());
   const response = await axios.get(
     `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_KEY}`,
     {
@@ -10,8 +10,8 @@ export const fetchFilm = (id) => async (dispatch) => {
     }
   );
   if (response.data.Error) {
-    dispatch(singleFilmSlice.actions.fetchFilmError(response.data.Error));
+    dispatch(singleFilmActions.fetchFilmError(response.data.Error));
     return;
   }
-  dispatch(singleFilmSlice.actions.fetchFilmSuccess(response.data));
+  dispatch(singleFilmActions.fetchFilmSuccess(response.data));
 };

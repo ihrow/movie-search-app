@@ -17,6 +17,9 @@ export function MainPage() {
   const debouncedFetchFilms = useDebounce(fetchFilms, 500);
 
   useEffect(() => {
+    /**
+     * if page is greater than total pages, then return
+     */
     if (page > Math.ceil(totalResults / 10)) {
       return;
     }

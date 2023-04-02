@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { MainPage, FilmPage } from "./pages";
 
-const App = () => {
+export function App() {
   return (
     <div className="min-h-[100vh] bg-gray-100 px-4 py-24 md:px-10">
       <Routes>
@@ -10,6 +10,4 @@ const App = () => {
       </Routes>
     </div>
   );
-};
-
-export default App;
+}

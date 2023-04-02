@@ -7,7 +7,7 @@ const initialState = {
   totalResults: 20,
 };
 
-export const filmsSlice = createSlice({
+const filmsSlice = createSlice({
   name: "films",
   initialState,
   reducers: {

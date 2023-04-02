@@ -6,7 +6,7 @@ const initialState = {
   error: null,
 };
 
-export const singleFilmSlice = createSlice({
+const singleFilmSlice = createSlice({
   name: "singleFilm",
   initialState,
   reducers: {

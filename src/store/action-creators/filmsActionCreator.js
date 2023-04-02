@@ -1,9 +1,9 @@
 import axios from "axios";
-import { filmsSlice } from "../reducers/filmsSlice";
+import { filmsActions } from "../reducers/filmsSlice.js";
 
 export const fetchFilms = (page, searchQuery) => async (dispatch, getState) => {
   const filmList = getState().films.films;
-  dispatch(filmsSlice.actions.filmsFetch());
+  dispatch(filmsActions.filmsFetch());
   const response = await axios.get(
     `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_KEY}`,
     {
@@ -13,20 +13,20 @@ export const fetchFilms = (page, searchQuery) => async (dispatch, getState) => {
 
   if (response.data.Error) {
     if (filmList.length === 0) {
-      dispatch(filmsSlice.actions.filmsFetchFailure(response.data.Error));
+      dispatch(filmsActions.filmsFetchFailure(response.data.Error));
       return;
     }
 
     // if we have films in the list, we don't want to show an error
-    dispatch(filmsSlice.actions.filmsFetchLoaded());
+    dispatch(filmsActions.filmsFetchLoaded());
     return;
   }
-  dispatch(filmsSlice.actions.filmsFetchSuccess(response.data.Search));
-  dispatch(filmsSlice.actions.filmsTotalResults(response.data.totalResults));
+  dispatch(filmsActions.filmsFetchSuccess(response.data.Search));
+  dispatch(filmsActions.filmsTotalResults(response.data.totalResults));
 };
 
 export const resetFilms = () => (dispatch) => {
-  dispatch(filmsSlice.actions.filmsDataReset());
+  dispatch(filmsActions.filmsDataReset());
 };
 
 export const fetchFilmPlot = (id) => async (dispatch) => {
@@ -37,8 +37,8 @@ export const fetchFilmPlot = (id) => async (dispatch) => {
     }
   );
   if (response.data.Error) {
-    dispatch(filmsSlice.actions.filmsFetchFailure(response.data.Error));
+    dispatch(filmsActions.filmsFetchFailure(response.data.Error));
     return;
   }
-  dispatch(filmsSlice.actions.filmsAddPlot(response.data));
+  dispatch(filmsActions.filmsAddPlot(response.data));
 };
