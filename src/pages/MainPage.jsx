@@ -36,14 +36,14 @@ export function MainPage() {
         initial="hidden"
         whileInView="show"
       >
-        Find your{' '}
+        Find your
         <motion.span className="text-bg-gradient">favourite</motion.span> movie.
       </motion.h1>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <FilmsList setPage={setPage} />
       {page > Math.ceil(totalResults / 10) && (
         <div className="mt-3 h-[50px] w-full text-center text-xl font-bold text-black">
-          No more films{' '}
+          No more films
         </div>
       )}
     </div>

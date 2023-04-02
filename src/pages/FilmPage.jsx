@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import {useCallback, useEffect} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { useActions } from '../hooks/useActions';
@@ -14,6 +14,10 @@ export function FilmPage() {
   const { fetchFilm } = useActions()
   const { film, loading, error } = useSelector((state) => state.singleFilm)
   const navigate = useNavigate()
+
+  const handleBack = useCallback(() => {
+    navigate(-1);
+  }, [navigate]);
 
   useEffect( () => {
     if (!validateStringStartsWith(id, 'tt')) {
@@ -109,7 +113,7 @@ export function FilmPage() {
         animate="show"
         whileHover={{ scale: 1.1 }}
         className="mt-5 rounded-full bg-orange-500 px-12 py-4 text-xl font-bold text-white hover:bg-orange-700"
-        onClick={() => navigate(-1)}
+        onClick={handleBack}
       >
         Back
       </motion.button>
