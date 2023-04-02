@@ -16,7 +16,7 @@ export function FilmPage() {
   const navigate = useNavigate();
 
   const handleBack = useCallback(() => {
-    navigate(-1);
+    navigate('/');
   }, [navigate]);
 
   useEffect(() => {
@@ -41,7 +41,18 @@ export function FilmPage() {
   }
 
   if (error) {
-    return <h3>{error}</h3>;
+    return (
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="my-5 text-3xl font-bold text-red-600">{error}</h1>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className="mt-5 px-5 py-3 rounded-lg bg-orange-500 text-white font-bold"
+          onClick={handleBack}
+        >
+          Back To Main Page
+        </motion.button>
+      </div>
+    );
   }
 
   return (

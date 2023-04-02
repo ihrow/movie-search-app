@@ -24,7 +24,7 @@ export function FilmsList({ setPage }) {
 
   if (error) {
     return (
-      <h3 className="mt-5 text-lg font-bold text-black">
+      <h3 className="mt-5 text-2xl font-bold text-red-600">
         {error === "Incorrect IMDb ID." ? "Enter movie name." : error}
       </h3>
     );
