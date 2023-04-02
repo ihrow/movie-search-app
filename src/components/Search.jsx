@@ -1,10 +1,12 @@
+import { useCallback } from "react";
 import { motion } from 'framer-motion';
-import useDebounce from '../hooks/useDebounce';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { fadeIn } from '../utils/motion';
 
-export function Search({ setSearchQuery }) {
-  const debouncedSearch = useDebounce(setSearchQuery, 1000)
+export function Search({ searchQuery, setSearchQuery }) {
+  const handleChange = useCallback((e) => {
+    setSearchQuery(e.target.value);
+  }, [setSearchQuery]);
 
   return (
     <div className="my-6 flex w-full items-center justify-center text-center md:my-16 ">
@@ -20,7 +22,8 @@ export function Search({ setSearchQuery }) {
           className="h-16 w-full rounded-lg border border-black bg-white px-12 text-lg font-bold text-black placeholder:font-medium placeholder:italic placeholder:text-black focus:outline-none"
           type="text"
           placeholder="Star Wars..."
-          onChange={(e) => debouncedSearch(e.target.value)}
+          value={searchQuery}
+          onChange={handleChange}
         />
       </motion.div>
     </div>

@@ -4,6 +4,7 @@ import { useActions } from '../hooks/useActions';
 import { textVariant } from '../utils/motion';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
+import useDebounce from "../hooks/useDebounce.js";
 
 export function MainPage() {
   const [searchQuery, setSearchQuery] = useState(
@@ -14,12 +15,14 @@ export function MainPage() {
   const [page, setPage] = useState(1)
   const { fetchFilms, resetFilms } = useActions()
   const { totalResults } = useSelector((state) => state.films)
+  const debouncedFetchFilms = useDebounce(fetchFilms, 500)
 
   useEffect(() => {
     if (page > Math.ceil(totalResults / 10)) {
       return
     }
-    fetchFilms(page, searchQuery.trim())
+
+    debouncedFetchFilms(page, searchQuery.trim())
   }, [page, searchQuery])
 
   useEffect(() => {
