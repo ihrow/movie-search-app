@@ -41,5 +41,6 @@ export const filmsSlice = createSlice({
     }
 })
 
-export default filmsSlice.reducer
+export const filmsActions = filmsSlice.actions;
+export const filmsReducer = filmsSlice.reducer;
 

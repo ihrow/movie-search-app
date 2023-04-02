@@ -3,12 +3,12 @@
  * This will allow us to add more reducers in the future.
  */
 import { combineReducers } from '@reduxjs/toolkit'
-import filmsSlice from './reducers/filmsSlice'
-import singleFilmSlice from './reducers/singleFilmSlice'
+import { filmsReducer } from "./reducers/filmsSlice.js";
+import { singleFilmReducer } from "./reducers/singleFilmSlice.js";
 
 const rootReducer = combineReducers({
-  films: filmsSlice,
-  singleFilm: singleFilmSlice,
+  films: filmsReducer,
+  singleFilm: singleFilmReducer,
 })
 
 export default rootReducer
