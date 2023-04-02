@@ -37,7 +37,7 @@ export function MainPage() {
         whileInView="show"
       >
         Find your
-        <motion.span className="text-bg-gradient">favourite</motion.span> movie.
+        <motion.span className="text-bg-gradient"> favourite </motion.span>movie.
       </motion.h1>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
       <FilmsList setPage={setPage}/>
