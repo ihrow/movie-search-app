@@ -1,49 +1,48 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   films: [],
   loading: false,
   error: null,
-  totalResults: 20
-}
+  totalResults: 20,
+};
 
 export const filmsSlice = createSlice({
-  name: 'films',
+  name: "films",
   initialState,
   reducers: {
     filmsFetch: (state) => {
-      state.loading = true
+      state.loading = true;
     },
     filmsFetchLoaded: (state) => {
-      state.loading = false
+      state.loading = false;
     },
     filmsFetchSuccess: (state, action) => {
-      state.films = state.films.concat(action.payload)
-      state.loading = false
+      state.films = state.films.concat(action.payload);
+      state.loading = false;
     },
     filmsFetchFailure: (state, action) => {
-      state.error = action.payload
-      state.loading = false
+      state.error = action.payload;
+      state.loading = false;
     },
     filmsDataReset: (state) => {
-      state.films = []
-      state.loading = false
-      state.error = null
+      state.films = [];
+      state.loading = false;
+      state.error = null;
     },
     filmsTotalResults: (state, action) => {
-      state.totalResults = action.payload
+      state.totalResults = action.payload;
     },
     filmsAddPlot: (state, action) => {
-      state.films = state.films.map(film => {
+      state.films = state.films.map((film) => {
         if (film.imdbID === action.payload.imdbID) {
-          return {...film, Plot: action.payload.Plot}
+          return { ...film, Plot: action.payload.Plot };
         }
-        return film
-      })
-    }
-  }
-})
+        return film;
+      });
+    },
+  },
+});
 
 export const filmsActions = filmsSlice.actions;
 export const filmsReducer = filmsSlice.reducer;
-

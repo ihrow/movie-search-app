@@ -1,4 +1,4 @@
-import {FilmPage} from './FilmPage';
-import {MainPage} from './MainPage';
+import { FilmPage } from './FilmPage';
+import { MainPage } from './MainPage';
 
-export {FilmPage, MainPage};
+export { FilmPage, MainPage };

@@ -1,19 +1,19 @@
-import {useCallback, useEffect} from 'react';
-import {useParams, useNavigate} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
-import {useActions} from '../hooks/useActions';
-import {motion} from 'framer-motion';
-import {fadeIn} from '../utils/motion';
-import {validateIsStringApplicable, validateStringStartsWith} from "../helpers/string.js";
-import {singleFilmActions} from "../store/reducers/singleFilmSlice.js";
+import { useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import noPoster from '../assets/no-poster.jpg';
+import { motion } from "framer-motion";
+import { validateIsStringApplicable, validateStringStartsWith, } from "../helpers/string.js";
+import { useActions } from "../hooks/useActions";
+import { singleFilmActions } from "../store/reducers/singleFilmSlice.js";
+import { fadeIn } from "../utils/motion";
 
 export function FilmPage() {
-  const dispatch = useDispatch()
-  const {id} = useParams()
-  const {fetchFilm} = useActions()
-  const {film, loading, error} = useSelector((state) => state.singleFilm)
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const { fetchFilm } = useActions();
+  const { film, loading, error } = useSelector((state) => state.singleFilm);
+  const navigate = useNavigate();
 
   const handleBack = useCallback(() => {
     navigate(-1);
@@ -30,18 +30,18 @@ export function FilmPage() {
 
     fetchFilm(id);
 
-  }, [id])
+  }, [id]);
 
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold text-black">Loading...</h1>
       </div>
-    )
+    );
   }
 
   if (error) {
-    return <h3>{error}</h3>
+    return <h3>{error}</h3>;
   }
 
   return (
@@ -114,12 +114,12 @@ export function FilmPage() {
         variants={fadeIn('up', 'spring', 1.3, 0.5)}
         initial="hidden"
         animate="show"
-        whileHover={{scale: 1.1}}
+        whileHover={{ scale: 1.1 }}
         className="mt-5 rounded-full bg-orange-500 px-12 py-4 text-xl font-bold text-white hover:bg-orange-700"
         onClick={handleBack}
       >
         Back
       </motion.button>
     </div>
-  )
+  );
 }

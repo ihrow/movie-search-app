@@ -1,32 +1,32 @@
-import {useEffect} from 'react';
-import {motion} from 'framer-motion';
-import {useActions} from '../hooks/useActions';
-import {fadeIn} from '../utils/motion';
-import {useNavigate} from 'react-router-dom';
-import noPoster from '../assets/no-poster.jpg';
-import {validateIsStringApplicable} from "../helpers/string.js";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { useActions } from "../hooks/useActions";
+import { fadeIn } from "../utils/motion";
+import { useNavigate } from "react-router-dom";
+import noPoster from "../assets/no-poster.jpg";
+import { validateIsStringApplicable } from "../helpers/string.js";
 
-export function FilmsListItem({idx, film}) {
-  const navigate = useNavigate()
-  const {fetchFilmPlot} = useActions()
+export function FilmsListItem({ idx, film }) {
+  const navigate = useNavigate();
+  const { fetchFilmPlot } = useActions();
 
   /**
    * As basic search request doesn't return plot,
    * we need to fetch it separately for each film.
    */
   useEffect(() => {
-    fetchFilmPlot(film.imdbID)
-  }, [])
+    fetchFilmPlot(film.imdbID);
+  }, []);
 
   return (
     <motion.div
       className="my-6 w-full cursor-pointer rounded-lg border-gray-700 bg-gray-800 shadow-lg md:my-8"
-      variants={fadeIn(idx % 2 === 0 ? 'right' : 'left', 'spring', 0.2, 0.5)}
+      variants={fadeIn(idx % 2 === 0 ? "right" : "left", "spring", 0.2, 0.5)}
       initial="hidden"
       whileInView="show"
-      whileHover={{scale: 1.05}}
+      whileHover={{ scale: 1.05 }}
       onClick={() => {
-        navigate(`/${film.imdbID}`)
+        navigate(`/${film.imdbID}`);
       }}
     >
       <img
@@ -42,9 +42,11 @@ export function FilmsListItem({idx, film}) {
           {`Released: ${film.Year}`}
         </p>
         <p className="mb-3 font-normal text-white">
-          {validateIsStringApplicable(film.Plot) ? film.Plot : 'No plot available'}
+          {validateIsStringApplicable(film.Plot)
+            ? film.Plot
+            : "No plot available"}
         </p>
       </div>
     </motion.div>
-  )
+  );
 }

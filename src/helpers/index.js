@@ -1,4 +1,4 @@
-import {getStorageValue} from "./localStotage.js";
-import {validateStringStartsWith} from "./string.js";
+import { getStorageValue } from "./localStorage.js";
+import { validateStringStartsWith } from "./string.js";
 
-export {getStorageValue, validateStringStartsWith};
+export { getStorageValue, validateStringStartsWith };
