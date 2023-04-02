@@ -1,6 +1,5 @@
-import React from 'react'
-import Masonry from 'react-masonry-css'
-import FilmsListItem from './FilmsListItem'
+import Masonry from 'react-masonry-css';
+import { FilmsListItem } from './FilmsListItem';
 
 const breakpointObj = {
   default: 4,
@@ -12,7 +11,7 @@ const breakpointObj = {
   500: 1,
 }
 
-const MasonryLayout = ({ films }) => {
+export function MasonryLayout({ films }) {
   /**
    * Since every poster has different size, we will use Masonry to render the list
    */
@@ -29,5 +28,3 @@ const MasonryLayout = ({ films }) => {
     </Masonry>
   )
 }
-
-export default MasonryLayout

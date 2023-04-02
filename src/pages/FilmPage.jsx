@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { useActions } from '../hooks/useActions'
-import { motion } from 'framer-motion'
-import { fadeIn } from '../utils/motion'
-import noPoster from '../assets/no-poster.jpg'
+import { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useActions } from '../hooks/useActions';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../utils/motion';
+import noPoster from '../assets/no-poster.jpg';
 
-const Film = () => {
+export function FilmPage() {
   const { id } = useParams()
   const { fetchFilm } = useActions()
   const { film, loading, error } = useSelector((state) => state.singleFilm)
@@ -40,7 +40,7 @@ const Film = () => {
           <img
             src={film.Poster === 'N/A' ? noPoster : film.Poster}
             className="min-h-[300px] min-w-[168px] md:min-h-[500px] md:min-w-[281px]"
-            alt="Film Poster"
+            alt="FilmPage Poster"
           />
           {film.Metascore !== 'N/A' && (
             <div className="mt-3 rounded-lg bg-orange-500 px-5 py-3 font-bold text-white">
@@ -107,5 +107,3 @@ const Film = () => {
     </div>
   )
 }
-
-export default Film

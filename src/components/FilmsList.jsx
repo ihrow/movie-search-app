@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
-import MasonryLayout from './MasonryLayout'
+import { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { MasonryLayout } from './MasonryLayout';
 
-const FilmsList = ({ setPage }) => {
+export function FilmsList({ setPage }) {
   const intersectionRef = useRef()
   const { films, loading, error } = useSelector((state) => state.films)
 
@@ -42,5 +42,3 @@ const FilmsList = ({ setPage }) => {
     </div>
   )
 }
-
-export default FilmsList

@@ -1,12 +1,11 @@
-import { motion } from 'framer-motion'
-import React, { useState, useEffect } from 'react'
-import FilmsList from '../components/FilmsList'
-import Search from '../components/Search'
-import { useActions } from '../hooks/useActions'
-import { textVariant } from '../utils/motion'
-import { useSelector } from 'react-redux'
+import { useState, useEffect } from 'react';
+import { FilmsList, Search } from '../components';
+import { useActions } from '../hooks/useActions';
+import { textVariant } from '../utils/motion';
+import { useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 
-const Main = () => {
+export function MainPage() {
   const [searchQuery, setSearchQuery] = useState(
     window.localStorage.getItem('searchQuery') === null
       ? 'John Wick'
@@ -51,5 +50,3 @@ const Main = () => {
     </div>
   )
 }
-
-export default Main

@@ -1,10 +1,9 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import useDebounce from '../hooks/useDebounce'
-import { AiOutlineSearch } from 'react-icons/ai'
-import { fadeIn } from '../utils/motion'
+import { motion } from 'framer-motion';
+import useDebounce from '../hooks/useDebounce';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { fadeIn } from '../utils/motion';
 
-const Search = ({ setSearchQuery }) => {
+export function Search({ setSearchQuery }) {
   const debouncedSearch = useDebounce(setSearchQuery, 1000)
 
   return (
@@ -27,5 +26,3 @@ const Search = ({ setSearchQuery }) => {
     </div>
   )
 }
-
-export default Search

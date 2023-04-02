@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { useActions } from '../hooks/useActions'
-import { fadeIn } from '../utils/motion'
-import { useNavigate } from 'react-router-dom'
-import noPoster from '../assets/no-poster.jpg'
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useActions } from '../hooks/useActions';
+import { fadeIn } from '../utils/motion';
+import { useNavigate } from 'react-router-dom';
+import noPoster from '../assets/no-poster.jpg';
 
-const FilmsListItem = ({ idx, film }) => {
+export function FilmsListItem({ idx, film }) {
   const navigate = useNavigate()
   const { fetchFilmPlot } = useActions()
 
@@ -47,5 +47,3 @@ const FilmsListItem = ({ idx, film }) => {
     </motion.div>
   )
 }
-
-export default FilmsListItem
