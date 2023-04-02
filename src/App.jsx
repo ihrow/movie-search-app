@@ -5,9 +5,6 @@ import Film from './pages/Film'
 
 const App = () => {
   return (
-    /**
-     * API is not so good to be honest.
-     */
     <div className="min-h-[100vh] bg-gray-100 px-4 py-24 md:px-10">
       <Routes>
         <Route path="/*" element={<MainPage />} />
