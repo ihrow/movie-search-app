@@ -1,43 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-  font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 ::-webkit-scrollbar {
-  width: 0.5rem;
-  background: rgb(103, 37, 242);
+    width: 0.5rem;
+    background: rgb(103, 37, 242);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    rgb(244, 67, 54) 25.49%,
-    rgb(223, 52, 206) 75.51%,
-    rgb(103, 37, 242) 93.53%
-  );
-  border-radius: 10px;
+    background: linear-gradient(
+            180deg,
+            rgb(244, 67, 54) 25.49%,
+            rgb(223, 52, 206) 75.51%,
+            rgb(103, 37, 242) 93.53%
+    );
+    border-radius: 10px;
 }
 
 .text-bg-gradient {
-  background: -webkit-linear-gradient(
-    90deg,
-    rgb(244, 67, 54) 21.49%,
-    rgb(223, 52, 206) 40.51%,
-    rgb(103, 37, 242) 59.53%
-  );
-  background: linear-gradient(
-    90deg,
-    rgb(244, 67, 54) 21.49%,
-    rgb(223, 52, 206) 40.51%,
-    rgb(103, 37, 242) 59.53%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: -webkit-linear-gradient(
+            90deg,
+            rgb(244, 67, 54) 21.49%,
+            rgb(223, 52, 206) 40.51%,
+            rgb(103, 37, 242) 59.53%
+    );
+    background: linear-gradient(
+            90deg,
+            rgb(244, 67, 54) 21.49%,
+            rgb(223, 52, 206) 40.51%,
+            rgb(103, 37, 242) 59.53%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* .background-gradient {
@@ -47,5 +48,5 @@
 } */
 
 .background-gradient {
-  background: white;
+    background: white;
 }

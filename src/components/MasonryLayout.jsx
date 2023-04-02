@@ -1,5 +1,5 @@
 import Masonry from 'react-masonry-css';
-import { FilmsListItem } from './FilmsListItem';
+import {FilmsListItem} from './FilmsListItem';
 
 const breakpointObj = {
   default: 4,
@@ -11,7 +11,7 @@ const breakpointObj = {
   500: 1,
 }
 
-export function MasonryLayout({ films }) {
+export function MasonryLayout({films}) {
   /**
    * Since every poster has different size, we will use Masonry to render the list
    */
@@ -23,7 +23,7 @@ export function MasonryLayout({ films }) {
 
     >
       {films.map((film, idx) =>
-        <FilmsListItem key={film.imdbID} idx={idx} film={film} />
+        <FilmsListItem key={film.imdbID} idx={idx} film={film}/>
       )}
     </Masonry>
   )

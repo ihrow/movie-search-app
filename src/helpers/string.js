@@ -4,7 +4,7 @@ export const validateStringStartsWith = (string, startsWith) => {
 
 /*
   because of the entire api returns N/A if the value is null
- */
+*/
 export function validateIsStringApplicable(string) {
   return string !== 'N/A';
 }

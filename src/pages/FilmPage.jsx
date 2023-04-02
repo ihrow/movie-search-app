@@ -1,25 +1,28 @@
 import {useCallback, useEffect} from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import { useActions } from '../hooks/useActions';
-import { motion } from 'framer-motion';
-import { fadeIn } from '../utils/motion';
+import {useActions} from '../hooks/useActions';
+import {motion} from 'framer-motion';
+import {fadeIn} from '../utils/motion';
 import noPoster from '../assets/no-poster.jpg';
 import {validateIsStringApplicable, validateStringStartsWith} from "../helpers/string.js";
-import {singleFilmActions } from "../store/reducers/singleFilmSlice.js";
+import {singleFilmActions} from "../store/reducers/singleFilmSlice.js";
 
 export function FilmPage() {
   const dispatch = useDispatch()
-  const { id } = useParams()
-  const { fetchFilm } = useActions()
-  const { film, loading, error } = useSelector((state) => state.singleFilm)
+  const {id} = useParams()
+  const {fetchFilm} = useActions()
+  const {film, loading, error} = useSelector((state) => state.singleFilm)
   const navigate = useNavigate()
 
   const handleBack = useCallback(() => {
     navigate(-1);
   }, [navigate]);
 
-  useEffect( () => {
+  useEffect(() => {
+    /*
+  validate film id to reduce server api calls
+ */
     if (!validateStringStartsWith(id, 'tt')) {
       dispatch(singleFilmActions.fetchFilmError('Incorrect IMDb ID.'));
       return;
@@ -111,7 +114,7 @@ export function FilmPage() {
         variants={fadeIn('up', 'spring', 1.3, 0.5)}
         initial="hidden"
         animate="show"
-        whileHover={{ scale: 1.1 }}
+        whileHover={{scale: 1.1}}
         className="mt-5 rounded-full bg-orange-500 px-12 py-4 text-xl font-bold text-white hover:bg-orange-700"
         onClick={handleBack}
       >

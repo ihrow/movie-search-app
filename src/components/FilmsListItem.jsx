@@ -1,14 +1,14 @@
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { useActions } from '../hooks/useActions';
-import { fadeIn } from '../utils/motion';
-import { useNavigate } from 'react-router-dom';
+import {useEffect} from 'react';
+import {motion} from 'framer-motion';
+import {useActions} from '../hooks/useActions';
+import {fadeIn} from '../utils/motion';
+import {useNavigate} from 'react-router-dom';
 import noPoster from '../assets/no-poster.jpg';
-import { validateIsStringApplicable } from "../helpers/string.js";
+import {validateIsStringApplicable} from "../helpers/string.js";
 
-export function FilmsListItem({ idx, film }) {
+export function FilmsListItem({idx, film}) {
   const navigate = useNavigate()
-  const { fetchFilmPlot } = useActions()
+  const {fetchFilmPlot} = useActions()
 
   /**
    * As basic search request doesn't return plot,
@@ -24,7 +24,7 @@ export function FilmsListItem({ idx, film }) {
       variants={fadeIn(idx % 2 === 0 ? 'right' : 'left', 'spring', 0.2, 0.5)}
       initial="hidden"
       whileInView="show"
-      whileHover={{ scale: 1.05 }}
+      whileHover={{scale: 1.05}}
       onClick={() => {
         navigate(`/${film.imdbID}`)
       }}

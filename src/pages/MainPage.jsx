@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react';
-import { FilmsList, Search } from '../components';
-import { useActions } from '../hooks/useActions';
-import { textVariant } from '../utils/motion';
-import { useSelector } from 'react-redux';
-import { motion } from 'framer-motion';
-import useDebounce from "../hooks/useDebounce.js";
-import { getStorageValue } from "../helpers";
+import {useState, useEffect} from 'react';
+import {FilmsList, Search} from '../components';
+import {useActions} from '../hooks/useActions';
+import {textVariant} from '../utils/motion';
+import {useSelector} from 'react-redux';
+import {motion} from 'framer-motion';
+import {useDebounce} from "../hooks/useDebounce.js";
+import {getStorageValue} from "../helpers";
 
 export function MainPage() {
   const [searchQuery, setSearchQuery] = useState(getStorageValue('searchQuery', 'John Wick'))
   const [page, setPage] = useState(1)
-  const { fetchFilms, resetFilms } = useActions()
-  const { totalResults } = useSelector((state) => state.films)
+  const {fetchFilms, resetFilms} = useActions()
+  const {totalResults} = useSelector((state) => state.films)
   const debouncedFetchFilms = useDebounce(fetchFilms, 500)
 
   useEffect(() => {
@@ -39,8 +39,8 @@ export function MainPage() {
         Find your
         <motion.span className="text-bg-gradient">favourite</motion.span> movie.
       </motion.h1>
-      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <FilmsList setPage={setPage} />
+      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+      <FilmsList setPage={setPage}/>
       {page > Math.ceil(totalResults / 10) && (
         <div className="mt-3 h-[50px] w-full text-center text-xl font-bold text-black">
           No more films
