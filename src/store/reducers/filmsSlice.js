@@ -14,6 +14,9 @@ export const filmsSlice = createSlice({
     filmsFetch: (state) => {
       state.loading = true
     },
+    filmsFetchLoaded: (state) => {
+      state.loading = false
+    },
     filmsFetchSuccess: (state, action) => {
       state.films = state.films.concat(action.payload)
       state.loading = false

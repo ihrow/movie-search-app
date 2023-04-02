@@ -4,9 +4,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useActions} from '../hooks/useActions';
 import {motion} from 'framer-motion';
 import {fadeIn} from '../utils/motion';
-import noPoster from '../assets/no-poster.jpg';
 import {validateIsStringApplicable, validateStringStartsWith} from "../helpers/string.js";
 import {singleFilmActions} from "../store/reducers/singleFilmSlice.js";
+import noPoster from '../assets/no-poster.jpg';
 
 export function FilmPage() {
   const dispatch = useDispatch()
