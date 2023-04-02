@@ -1,19 +1,29 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { useActions } from '../hooks/useActions';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../utils/motion';
 import noPoster from '../assets/no-poster.jpg';
+import {validateStringStartsWith} from "../helpers/string.js";
+import {singleFilmActions } from "../store/reducers/singleFilmSlice.js";
 
 export function FilmPage() {
+  const dispatch = useDispatch()
   const { id } = useParams()
   const { fetchFilm } = useActions()
   const { film, loading, error } = useSelector((state) => state.singleFilm)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    fetchFilm(id)
+  useEffect( () => {
+
+    if (!validateStringStartsWith(id, 'tt')) {
+      dispatch(singleFilmActions.fetchFilmError('Incorrect IMDb ID.'));
+      return;
+    }
+
+    fetchFilm(id);
+
   }, [id])
 
   if (loading) {
