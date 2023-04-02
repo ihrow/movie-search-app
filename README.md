@@ -16,3 +16,12 @@
 - `Framer Motion`
 - `Masonry CSS`
 - `axios`
+
+## Local Setup
+- Clone the repo `git clone https://github.com/ihrow/movie-search-app.git`
+- Get an API key from [OMDb API](https://www.omdbapi.com/apikey.aspx)
+- Create a `.env` file in the root directory
+- Add the API key the same way as in `.env.example`
+- Run `npm install`
+- Run `npm run dev`
+- Open `http://localhost:5173` in your browser
