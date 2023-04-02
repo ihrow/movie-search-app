@@ -5,13 +5,10 @@ import { textVariant } from '../utils/motion';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import useDebounce from "../hooks/useDebounce.js";
+import { getStorageValue } from "../helpers";
 
 export function MainPage() {
-  const [searchQuery, setSearchQuery] = useState(
-    window.localStorage.getItem('searchQuery') === null
-      ? 'John Wick'
-      : window.localStorage.getItem('searchQuery')
-  )
+  const [searchQuery, setSearchQuery] = useState(getStorageValue('searchQuery', 'John Wick'))
   const [page, setPage] = useState(1)
   const { fetchFilms, resetFilms } = useActions()
   const { totalResults } = useSelector((state) => state.films)
