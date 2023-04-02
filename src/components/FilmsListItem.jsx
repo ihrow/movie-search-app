@@ -4,6 +4,7 @@ import { useActions } from '../hooks/useActions';
 import { fadeIn } from '../utils/motion';
 import { useNavigate } from 'react-router-dom';
 import noPoster from '../assets/no-poster.jpg';
+import { validateIsStringApplicable } from "../helpers/string.js";
 
 export function FilmsListItem({ idx, film }) {
   const navigate = useNavigate()
@@ -30,18 +31,18 @@ export function FilmsListItem({ idx, film }) {
     >
       <img
         className="w-full rounded-t-lg"
-        src={film.Poster === 'N/A' ? noPoster : film.Poster}
-        alt=""
+        src={validateIsStringApplicable(film.Poster) ? film.Poster : noPoster}
+        alt="Film Poster"
       />
       <div className="p-5">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
           {film.Title}
         </h5>
         <p className="mb-3 text-sm font-semibold text-gray-200">
-          Released: {film.Year}
+          {`Released: ${film.Year}`}
         </p>
         <p className="mb-3 font-normal text-white">
-          {film.Plot === 'N/A' ? 'No plot provided' : film.Plot}
+          {validateIsStringApplicable(film.Plot) ? film.Plot : 'No plot available'}
         </p>
       </div>
     </motion.div>

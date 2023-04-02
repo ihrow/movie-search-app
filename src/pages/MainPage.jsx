@@ -43,7 +43,6 @@ export function MainPage() {
       <FilmsList setPage={setPage} />
       {page > Math.ceil(totalResults / 10) && (
         <div className="mt-3 h-[50px] w-full text-center text-xl font-bold text-black">
-          {' '}
           No more films{' '}
         </div>
       )}

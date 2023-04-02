@@ -5,7 +5,7 @@ import { useActions } from '../hooks/useActions';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../utils/motion';
 import noPoster from '../assets/no-poster.jpg';
-import {validateStringStartsWith} from "../helpers/string.js";
+import {validateIsStringApplicable, validateStringStartsWith} from "../helpers/string.js";
 import {singleFilmActions } from "../store/reducers/singleFilmSlice.js";
 
 export function FilmPage() {
@@ -16,7 +16,6 @@ export function FilmPage() {
   const navigate = useNavigate()
 
   useEffect( () => {
-
     if (!validateStringStartsWith(id, 'tt')) {
       dispatch(singleFilmActions.fetchFilmError('Incorrect IMDb ID.'));
       return;
@@ -48,13 +47,13 @@ export function FilmPage() {
           animate="show"
         >
           <img
-            src={film.Poster === 'N/A' ? noPoster : film.Poster}
+            src={validateIsStringApplicable(film.Poster) ? film.Poster : noPoster}
             className="min-h-[300px] min-w-[168px] md:min-h-[500px] md:min-w-[281px]"
             alt="FilmPage Poster"
           />
-          {film.Metascore !== 'N/A' && (
+          {validateIsStringApplicable(film.Metascore) && (
             <div className="mt-3 rounded-lg bg-orange-500 px-5 py-3 font-bold text-white">
-              <span>Metascore: {film.Metascore}/100</span>
+              <span>{`Metascore: ${film.Metascore}/100`}</span>
             </div>
           )}
         </motion.div>
@@ -65,7 +64,7 @@ export function FilmPage() {
             initial="hidden"
             animate="show"
           >
-            {film.Title} ({film.Year})
+            {`${film.Title} (${film.Year})`}
           </motion.h1>
           <motion.p
             className="mt-3 text-lg font-medium"
@@ -73,7 +72,7 @@ export function FilmPage() {
             initial="hidden"
             animate="show"
           >
-            {film.Plot === 'N/A' ? 'No plot provided' : film.Plot}
+            {validateIsStringApplicable(film.Plot) ? film.Plot : 'No plot available.'}
           </motion.p>
           <motion.h3
             className="my-3 text-xl font-bold text-black"
