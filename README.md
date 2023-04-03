@@ -1,5 +1,5 @@
 ## Movie Search React App
-![img](https://i.imgur.com/KQ2EFli.jpg)
+![img](https://i.imgur.com/dUZtBcH.jpg)
 
 #### This is a simple React app that uses the [OMDb API](http://www.omdbapi.com/) to search for movies.
 
