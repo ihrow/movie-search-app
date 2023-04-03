@@ -56,18 +56,16 @@ export function FilmsList({ setPage }) {
     <div className="flex flex-row flex-wrap items-center justify-center">
       {!error && <MasonryLayout films={films} />}
       {loading && (
-        <div className="h-8 w-full text-center text-2xl font-bold text-black">
+        <div className="h-8 w-full text-center text-2xl font-bold text-black dark:text-white">
           Loading...
         </div>
       )}
       {isButtonToTopVisible && (
-        <div className="fixed bottom-0 left-100 w-full text-2xl font-bold text-black mb-6">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-full"
+          <button className="fixed bottom-0 bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-full mb-6"
             onClick={scrollToTop}
           >
             <AiOutlineArrowUp fontSize={32} fontWeight='bold' />
           </button>
-        </div>
       )}
       <div className="h-10 w-full" ref={intersectionRef} />
     </div>
