@@ -10,7 +10,7 @@ export function FilmsList({ setPage }) {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+  };
 
   const onScroll = () => {
     if (window.scrollY > 1000) {
@@ -18,11 +18,11 @@ export function FilmsList({ setPage }) {
     } else {
       setIsButtonToTopVisible(false);
     }
-  }
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
-  },[]);
+  }, []);
 
   useEffect(() => {
     if (!intersectionRef.current) return;
@@ -61,11 +61,12 @@ export function FilmsList({ setPage }) {
         </div>
       )}
       {isButtonToTopVisible && (
-          <button className="fixed bottom-0 bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded-full mb-6"
-            onClick={scrollToTop}
-          >
-            <AiOutlineArrowUp fontSize={32} fontWeight='bold' />
-          </button>
+        <button
+          className="fixed bottom-0 mb-6 rounded-full bg-blue-500 px-4 py-4 font-bold text-white hover:bg-blue-700"
+          onClick={scrollToTop}
+        >
+          <AiOutlineArrowUp fontSize={32} fontWeight="bold" />
+        </button>
       )}
       <div className="h-10 w-full" ref={intersectionRef} />
     </div>
