@@ -36,10 +36,10 @@ export function MainPage() {
   return (
     <div className="my-3 flex h-full w-full flex-col items-center justify-center text-center md:my-10">
       <motion.h1
-        className="text-5xl font-bold text-black md:text-7xl"
+        className="text-5xl font-bold text-black dark:text-white md:text-7xl"
         variants={textVariant(0.5)}
         initial="hidden"
-        whileInView="show"
+        animate="show"
       >
         Find your
         <motion.span className="text-bg-gradient"> favourite </motion.span>
@@ -48,7 +48,7 @@ export function MainPage() {
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <FilmsList setPage={setPage} />
       {page > Math.ceil(totalResults / 10) && (
-        <div className="mt-3 h-[50px] w-full text-center text-xl font-bold text-black">
+        <div className="mt-3 h-[50px] w-full text-center text-xl font-bold text-black dark:text-white">
           No more films
         </div>
       )}

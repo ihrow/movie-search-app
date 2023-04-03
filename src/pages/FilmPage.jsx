@@ -37,7 +37,7 @@ export function FilmPage() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold text-black">Loading...</h1>
+        <h1 className="text-3xl font-bold text-black dark:text-white">Loading...</h1>
       </div>
     );
   }
@@ -59,7 +59,7 @@ export function FilmPage() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="flex w-full flex-col items-center justify-start px-2 lg:flex-row lg:items-start lg:px-48">
+      <div className="flex w-full flex-col items-center justify-start px-2 lg:flex-row lg:items-start lg:px-48 dark:text-white">
         <motion.div
           className="flex h-full max-w-[500px] flex-col items-center justify-center"
           variants={fadeIn("right", "spring", 0.3, 0.5)}
@@ -81,7 +81,7 @@ export function FilmPage() {
         </motion.div>
         <div className="ml-5 mt-3 flex flex-col items-start justify-start lg:mt-0">
           <motion.h1
-            className="text-3xl font-bold text-black"
+            className="text-3xl font-bold dark:text-[#E86A92]"
             variants={fadeIn("up", "spring", 0.5, 0.5)}
             initial="hidden"
             animate="show"
@@ -99,7 +99,7 @@ export function FilmPage() {
               : "No plot available."}
           </motion.p>
           <motion.h3
-            className="my-3 text-xl font-bold text-black"
+            className="my-3 text-xl font-bold dark:text-[#E86A92]"
             variants={fadeIn("up", "spring", 0.9, 0.5)}
             initial="hidden"
             animate="show"

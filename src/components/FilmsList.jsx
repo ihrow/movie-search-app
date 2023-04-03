@@ -14,7 +14,9 @@ export function FilmsList({ setPage }) {
       }
     });
 
-    observer.observe(intersectionRef.current);
+    setTimeout(() => {
+      observer.observe(intersectionRef.current);
+    }, 1000);
 
     document.addEventListener("DOMContentLoaded", () => {
       return () => {
