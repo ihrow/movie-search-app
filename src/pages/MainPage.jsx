@@ -13,7 +13,7 @@ export function MainPage() {
   );
   const [page, setPage] = useState(1);
   const { fetchFilms, resetFilms } = useActions();
-  const { totalResults } = useSelector((state) => state.films);
+  const { error, totalResults } = useSelector((state) => state.films);
   const debouncedFetchFilms = useDebounce(fetchFilms, 500);
 
   useEffect(() => {
@@ -33,6 +33,7 @@ export function MainPage() {
     window.localStorage.setItem("searchQuery", searchQuery);
   }, [searchQuery]);
 
+
   return (
     <div className="my-3 flex h-full w-full flex-col items-center justify-center text-center md:my-10">
       <motion.h1
@@ -47,7 +48,7 @@ export function MainPage() {
       </motion.h1>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <FilmsList setPage={setPage} />
-      {page > Math.ceil(totalResults / 10) && (
+      {page > Math.ceil(totalResults / 10) && !error && (
         <div className="mt-3 h-[50px] w-full text-center text-xl font-bold text-black dark:text-white">
           No more films
         </div>
