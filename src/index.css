@@ -6,7 +6,7 @@
 
 * {
   font-family: "Poppins", sans-serif;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: auto;
 }
 
 ::-webkit-scrollbar {
