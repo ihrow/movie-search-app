@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { getHigherResolutionImage } from "../helpers/image.js";
 import { useActions } from "../hooks/useActions";
 import { fadeIn } from "../utils/motion";
 import { useNavigate } from "react-router-dom";
@@ -31,7 +32,11 @@ export function FilmsListItem({ idx, film }) {
     >
       <img
         className="w-full rounded-t-lg"
-        src={validateIsStringApplicable(film.Poster) ? film.Poster : noPoster}
+        src={
+          validateIsStringApplicable(film.Poster)
+            ? getHigherResolutionImage(film.Poster, 1000)
+            : noPoster
+        }
         alt="Film Poster"
       />
       <div className="p-5">

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import noPoster from "../assets/no-poster.jpg";
 import { motion } from "framer-motion";
+import { getHigherResolutionImage } from "../helpers/image.js";
 import {
   validateIsStringApplicable,
   validateStringStartsWith,
@@ -37,7 +38,9 @@ export function FilmPage() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold text-black dark:text-white">Loading...</h1>
+        <h1 className="text-3xl font-bold text-black dark:text-white">
+          Loading...
+        </h1>
       </div>
     );
   }
@@ -59,7 +62,7 @@ export function FilmPage() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="flex w-full flex-col items-center justify-start px-2 lg:flex-row lg:items-start lg:px-48 dark:text-white">
+      <div className="flex w-full flex-col items-center justify-start px-2 dark:text-white lg:flex-row lg:items-start lg:px-48">
         <motion.div
           className="flex h-full max-w-[500px] flex-col items-center justify-center"
           variants={fadeIn("right", "spring", 0.3, 0.5)}
@@ -68,7 +71,9 @@ export function FilmPage() {
         >
           <img
             src={
-              validateIsStringApplicable(film.Poster) ? film.Poster : noPoster
+              validateIsStringApplicable(film.Poster)
+                ? getHigherResolutionImage(film.Poster, 1000)
+                : noPoster
             }
             className="min-h-[300px] min-w-[168px] md:min-h-[500px] md:min-w-[281px]"
             alt="FilmPage Poster"
